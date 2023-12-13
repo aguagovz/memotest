@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import MemocardGrid from "./components/MemocardGrid/MemocardGrid";
+import { memoCardFurnitureList } from "./constants/furnitureList";
+import { memoCardThingsList } from "./constants/thingsList";
 
 function App() {
+  const [memocardList, setMemocardList] = useState([]);
+  const [shouldReset, setShouldReset] = useState(false);
+
+  const getFurniture = () => {
+    setMemocardList(memoCardFurnitureList);
+    setShouldReset(true);
+  };
+
+  const getThings = () => {
+    setMemocardList(memoCardThingsList);
+    setShouldReset(true);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h1 className="bigTitle">Memotest</h1>
+      <button onClick={() => getFurniture()}>Möbel</button>
+      <button onClick={() => getThings()}>Gegenstände</button>
+      <MemocardGrid shouldReset={shouldReset} memocardlist={memocardList} />
+    </>
   );
 }
 
