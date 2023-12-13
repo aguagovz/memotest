@@ -1,0 +1,14 @@
+.Memocard {
+    border: 3px solid black;
+    width: 250px;
+    height: 250px;
+    overflow: hidden;
+}
+
+.Memocard-img {
+    width: 100%;
+}
+
+.text {
+    text-align: center; /* mejor hacerlo con flex!*/
+}
